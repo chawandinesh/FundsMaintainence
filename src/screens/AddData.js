@@ -26,7 +26,7 @@ export default function AddData(props) {
       <ImageBackground
         source={require('../assets/bg4.jpg')}
         style={{height, width, justifyContent: 'center'}}>
-        <View style={{position: 'absolute', top: 10, right: 10}}>
+        <View style={{position: 'absolute', top: height * 0.05, right: 10}}>
           <View
             style={{
               borderWidth: 1,
