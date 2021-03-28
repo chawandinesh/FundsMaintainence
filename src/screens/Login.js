@@ -66,8 +66,18 @@ export default function Login(props) {
         users: {
           ...state.users,
           registeredUsers: [...state.users.registeredUsers, signUp],
+          isLogin: true,
+
         },
+        loginUser: {
+          userId: signUp.userId,
+          password: signUp.password,
+        },
+
+
       });
+
+      props.navigation.navigate('CashScreen');
       alert('successsfully registered');
       setSignUp({
         userId: '',
