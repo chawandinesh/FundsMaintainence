@@ -32,18 +32,16 @@ export default function Login(props) {
       state.users.registeredUsers.map(e => {
         return {userId: e.userId, password: e.password};
       });
-    console.log(regUsers);
-    if (
-      regUsers.length &&
-      regUsers[0].userId === credentials.userId &&
-      regUsers.length &&
-      regUsers[0].password === credentials.password
-    ) {
+    if (regUsers.some(user => user.userId === credentials.userId)) {
       setState({
         ...state,
         users: {
           ...state.users,
           isLogin: true,
+        },
+        loginUser: {
+          userId: credentials.userId,
+          password: credentials.password,
         },
       });
       setCredentials({

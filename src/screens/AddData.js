@@ -26,6 +26,19 @@ export default function AddData(props) {
       <ImageBackground
         source={require('../assets/bg4.jpg')}
         style={{height, width, justifyContent: 'center'}}>
+        <View style={{position: 'absolute', top: 10, right: 10}}>
+          <View
+            style={{
+              borderWidth: 1,
+              padding: 2,
+              borderRadius: 5,
+              borderColor: '#fff',
+            }}>
+            <Text style={{color: '#fff', fontWeight: 'bold'}}>
+              UserId: {state.loginUser.userId}
+            </Text>
+          </View>
+        </View>
         <View
           style={{
             height: height * 0.5,
@@ -142,6 +155,7 @@ export default function AddData(props) {
                     legendFontColor: '#7F7F7F',
                     legendFontSize: 15,
                     id: Date.now(),
+                    userId: state.loginUser.userId,
                   },
                 ],
               });

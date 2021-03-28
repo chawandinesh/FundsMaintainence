@@ -23,11 +23,13 @@ export default function CashScreen(props) {
 
   const data = {
     incomeData: state.transactions
+      .filter(e => e.userId === state.loginUser.userId)
       .filter(e => e.category === 'income')
       .map(e => {
         return {...e, price: JSON.parse(e.price)};
       }),
     expenditureData: state.transactions
+      .filter(e => e.userId === state.loginUser.userId)
       .filter(e => e.category === 'expenditure')
       .map(e => {
         return {...e, price: JSON.parse(e.price)};
@@ -65,6 +67,19 @@ export default function CashScreen(props) {
     <ImageBackground
       source={require('../assets/bg5.jpg')}
       style={{height, width, paddingTop: height * 0.05}}>
+      <View style={{position: 'absolute', top: 10, right: 10}}>
+        <View
+          style={{
+            borderWidth: 1,
+            padding: 2,
+            borderRadius: 5,
+            borderColor: '#fff',
+          }}>
+          <Text style={{color: '#fff', fontWeight: 'bold'}}>
+            UserId: {state.loginUser.userId}
+          </Text>
+        </View>
+      </View>
       <View
         style={{
           height: height * 0.1,

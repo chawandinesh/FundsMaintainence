@@ -6,6 +6,7 @@ export function Context(props) {
       isLogin: false,
       registeredUsers: [],
     },
+    loginUser: {userId: '', password: ''},
     transactions: [],
   });
   return (
